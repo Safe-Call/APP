@@ -17,7 +17,6 @@ class MainPage(GridLayout):
         self.deepfakedetector = DeepFakeInference()
         self.deepvoicedetector = DeepVoiceInference()
         self.cols = 1
-        # self.rows = 6
         self.spacing = (0, 0)  # rows와 cols 간의 간격을 0으로 설정
         self.padding = (10, 10, 10, 10)  # 레이아웃의 여백을 10으로 설정
 
@@ -31,5 +30,4 @@ class MainPage(GridLayout):
         # 분할된 Screen manager part
         self.screen_graph_manager = ScreenGraphManager(self.screen_video_voice_manager)
         self.add_widget(self.screen_graph_manager)
-
 
