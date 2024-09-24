@@ -14,7 +14,7 @@ from kivy.clock import Clock
 class ScreenVoice(Screen):
     def __init__(self, deepvoicedetector, **kwargs):
         super().__init__(**kwargs)
-        self.data, self.sr = sf.read('samples/Obama-to-Biden.wav')
+        self.data, self.sr = sf.read('samples/ryan-original.wav')
         self.audio_processor = AudioProcessor(deepvoicedetector, self.data, self.sr)
 
         self.layout = GridLayout(cols=1, rows=2)
@@ -42,7 +42,7 @@ class ScreenVoice(Screen):
     def on_enter(self, *args):
         # Detection 진행
         sd.play(self.data, samplerate=self.sr)
-        self.event_audio = Clock.schedule_interval(self.get_audio_prediction, 1.0 / 30.0)
+        self.event_audio = Clock.schedule_interval(self.get_audio_prediction, 1.0 / 2.0)
 
     def on_leave(self, *args):
         if self.event_audio:
